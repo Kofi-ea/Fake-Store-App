@@ -1,5 +1,5 @@
 import React from 'react'
-import Products from './Products'
+import Products from '../Components/Products'
 import { availableMovies } from './Dump'
 import { useState, useEffect } from 'react'
 
