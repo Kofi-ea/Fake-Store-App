@@ -93,6 +93,70 @@
   margin-top: 20px;
   line-height: 1.3;
 }
+.back-btn {
+  width: fit-content;
+  padding: 15px;
+  border: 1px solid black;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.4rem;
+  background-color: white;
+  margin: 10px;
+}
+
+.preview {
+  background-color: white;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+  padding: 30px;
+  font-size: 1.2rem;
+  font-family: "Times New Roman", Times, serif;
+}
+.preview-img-box {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.preview-img {
+  width: 70%;
+}
+aside {
+  width: 60%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+aside .info {
+  line-height: 1.2;
+}
+.add-to-cart-btn {
+  margin-top: 40px;
+  width: 80%;
+  padding: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+}
+.add-to-cart-btn:active {
+  background-color: black;
+  border-color: white;
+  color: white;
+}
+
+.positive {
+  background-color: black;
+  border-color: white;
+  color: white;
+}
 
 .footer {
   background-color: rgb(20, 20, 20);

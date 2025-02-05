@@ -1,10 +1,12 @@
 import React from "react";
 import Products from "../Components/Products";
 import { useState, useEffect } from "react";
+import Loading from "../Components/Loading";
 
 const Page = () => {
   const [counter, setCounter] = useState(0);
   const [store, setStore] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const received = async () => {
     //https://fakestoreapi.com/products = fake store api
@@ -20,6 +22,8 @@ const Page = () => {
     } catch (error) {
       console.log("Something went wrong", error);
     }
+
+    setIsLoading(false);
   };
 
   console.log(store);
@@ -32,6 +36,7 @@ const Page = () => {
     return (
       <Products
         key={product.id}
+        id={product.id}
         name={product.title}
         //  category = {product.category}
         about={product.description}
@@ -43,6 +48,7 @@ const Page = () => {
 
   return (
     <>
+      {isLoading && <Loading />}
       <div className="main-page">
         <div
           style={{
