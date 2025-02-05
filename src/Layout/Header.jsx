@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
 
@@ -34,8 +35,8 @@ const Header = () => {
             </ul>
             
          </div>
-         <div className='cart'>
-          <li>Cart</li>
+         <div className='cart-link'>
+           <Link to={'/cart'}><li>Cart</li></Link>
          </div>
       
        

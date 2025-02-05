@@ -1,10 +1,9 @@
-
-*{
+* {
   padding: 0;
   margin: 0;
 }
 
-.heading{
+.heading {
   background-color: rgb(24, 24, 24);
   justify-content: space-between;
   display: flex;
@@ -13,37 +12,35 @@
   border-bottom: 1px solid white;
   padding: 10px;
 }
-.logo-container{
+.logo-container {
   display: flex;
   align-items: center;
 }
 
-.logo{
+.logo {
   height: 50px;
   margin-right: 26px;
 }
 
-.menu{
+.menu {
   display: inline-flex;
-position: relative;
- 
+  position: relative;
 }
 
-.menu li{
+.menu li {
   list-style: none;
   cursor: pointer;
   padding: 10px;
   color: white;
 }
-.menu li:hover{
+.menu li:hover {
   color: gray;
 }
-
 
 /* .collection{
 
 } */
-.collection-menu{
+.collection-menu {
   position: absolute;
   display: flex;
   background-color: rgb(24, 24, 24);
@@ -55,47 +52,49 @@ position: relative;
   margin-left: 0px;
   height: 60px;
 }
-.collection-menu li{
+.collection-menu li {
   margin-right: 65px;
 }
 
-.cart{
+.cart-link li {
   color: white;
   list-style: none;
   margin-right: 20px;
   cursor: pointer;
 }
 
-.main-page{
+.main-page {
   background-color: white;
   min-height: 100vh;
   color: rgb(2, 2, 2);
 }
-.product-image{
+.product-image {
   width: 250px;
 }
-.product-design{
+.product-design {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   height: 500px;
   padding: 10px;
   cursor: pointer;
-  transition: transform .7s ease-in-out;
+  transition: transform 0.7s ease-in-out;
   text-align: center;
+  color: black;
 }
 
-.product-design:hover{
+.product-design:hover {
   transform: scale(1.05);
 }
-.product-info{
+.product-info {
   margin-top: 20px;
   line-height: 1.3;
 }
 
-.footer{
+.footer {
   background-color: rgb(20, 20, 20);
   display: flex;
   justify-content: center;
