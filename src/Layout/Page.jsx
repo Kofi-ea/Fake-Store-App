@@ -39,7 +39,7 @@ const Page = () => {
       return  <Products 
        key ={product.id}
        name = {product.title} 
-       category = {product.category}
+      //  category = {product.category}
        about = {product.description}
        price = {product.price}
        image = {product.image}
@@ -58,7 +58,7 @@ const Page = () => {
       
       <div className='main-page'>
        
-          <div style={{display:"grid",gridTemplateColumns:"320px 320px 320px 320px", gap:"20px", padding:"50px"}}>
+          <div style={{display:"grid",gridTemplateColumns:"320px 320px 320px 320px", gap:"20px", padding:"40px"}}>
           {update}
           </div>
               

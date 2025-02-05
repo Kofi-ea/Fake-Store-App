@@ -1,12 +1,15 @@
 import React from 'react'
 
-const Products = ({ name, category, price, image,about }) => {
+const Products = ({ name, price, image, about }) => {
   return (
     <div className='product-design'>
-      <h3>{name}</h3>
+   
       <img className='product-image' src={image} alt= {about} />
-      <p>{category}</p>
-      <p>{price}</p>
+      <div className='product-info'>
+      <p style={{fontSize:"1.3rem", fontWeight:"bold"}}>{name.substring(0, 20) + '...'}</p>
+      <p style={{fontSize:"1.2rem"}}>${price}</p>
+      </div>
+    
     </div>
   )
 }

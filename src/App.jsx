@@ -1,16 +1,17 @@
+import {Route, 
+  createBrowserRouter, 
+  createRoutesFromElements, 
+  RouterProvider} from 'react-router-dom'
 import React from 'react'
-import Header from './Layout/Header'
-import Page from './Layout/Page'
-import Footer from './Layout/Footer'
+import HomePage from './Pages/HomePage'
+
 
 const App = () => {
 
 
   return (
     <>
-     <Header />
-     <Page />
-     <Footer />
+       <HomePage />
     </>
    
   )
