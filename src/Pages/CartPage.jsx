@@ -1,14 +1,12 @@
-import React from 'react'
-
+import React from "react";
+import { useState, useEffect } from "react";
 
 const CartPage = () => {
   return (
     <>
-
-     <p>Cart Page</p>
-      
+      <p>Cart Page</p>
     </>
-  )
-}
+  );
+};
 
-export default CartPage
+export default CartPage;

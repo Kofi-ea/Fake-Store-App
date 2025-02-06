@@ -2,11 +2,12 @@ import React from "react";
 import Products from "../Components/Products";
 import { useState, useEffect } from "react";
 import Loading from "../Components/Loading";
+import Banners from "../Components/Banners";
 
 const Page = () => {
-  const [counter, setCounter] = useState(0);
   const [store, setStore] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [hideOptions, setHideOptions] = useState(true);
 
   const received = async () => {
     //https://fakestoreapi.com/products = fake store api
@@ -49,7 +50,13 @@ const Page = () => {
   return (
     <>
       {isLoading && <Loading />}
+
       <div className="main-page">
+        <Banners />
+        <div className="title-box">
+          <h2 className="title">STORE</h2>
+        </div>
+
         <div
           style={{
             display: "grid",

@@ -43,7 +43,7 @@ const preview = () => {
         <Loading />
       ) : (
         <div style={{ minHeight: "100vh" }}>
-          <Link to={"/"}>
+          <Link to={"/"} style={{ textDecoration: "none" }}>
             <button className="back-btn">
               <FaArrowLeft />
               Back
@@ -76,7 +76,13 @@ const preview = () => {
                 >
                   {info.description}
                 </p>
-                <p style={{ lineHeight: "1.5", fontWeight: "bold" }}>
+                <p
+                  style={{
+                    lineHeight: "1.5",
+                    fontWeight: "bold",
+                    marginTop: "10px",
+                  }}
+                >
                   *category: {info.category}
                 </p>
                 <p style={{ lineHeight: "1.3", fontWeight: "bold" }}>

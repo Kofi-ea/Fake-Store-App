@@ -21,7 +21,9 @@ const PreviewHeader = () => {
         </div>
         <div className="cart-link">
           <Link to={"/cart"}>
-            <li>Cart</li>
+            <li>
+              Cart <span>( 0 )</span>
+            </li>
           </Link>
         </div>
       </div>
