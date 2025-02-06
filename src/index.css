@@ -97,6 +97,13 @@
   color: white;
 }
 
+.products-grid {
+  display: grid;
+  grid-template-columns: 320px 320px 320px 320px;
+  gap: 20px;
+  padding: 40px;
+}
+
 .product-design {
   display: flex;
   justify-content: center;
@@ -116,6 +123,35 @@
 .product-design:hover {
   transform: scale(1.05);
 }
+.show-more-btn {
+  text-align: center;
+}
+
+.show-more-btn button {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(24, 24, 24);
+  color: white;
+  font-size: 1.1rem;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: all 4s ease-in-out;
+  height: fit-content;
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* Apply the animation to the button */
+.show-more-btn button {
+  animation: bounce 1s infinite;
+}
+
 .product-info {
   margin-top: 20px;
   line-height: 1.3;

@@ -7,6 +7,7 @@ import Banners from "../Components/Banners";
 const Page = () => {
   const [store, setStore] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [visibleOptions, setVisibleOptions] = useState([]);
   const [hideOptions, setHideOptions] = useState(true);
 
   const received = async () => {
@@ -20,6 +21,7 @@ const Page = () => {
       console.log(data);
 
       setStore(data);
+      setVisibleOptions(data.slice(0, 8));
     } catch (error) {
       console.log("Something went wrong", error);
     }
@@ -33,7 +35,11 @@ const Page = () => {
     received();
   }, []);
 
-  let update = store.map((product) => {
+  const showMore = () => {
+    return setHideOptions((prevState) => !prevState);
+  };
+
+  let update = visibleOptions.map((product) => {
     return (
       <Products
         key={product.id}
@@ -56,16 +62,39 @@ const Page = () => {
         <div className="title-box">
           <h2 className="title">STORE</h2>
         </div>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "320px 320px 320px 320px",
-            gap: "20px",
-            padding: "40px",
-          }}
-        >
-          {update}
+        <div className="products-grid">
+          {hideOptions
+            ? visibleOptions.map((product) => {
+                return (
+                  <Products
+                    key={product.id}
+                    id={product.id}
+                    name={product.title}
+                    //  category = {product.category}
+                    about={product.description}
+                    price={product.price}
+                    image={product.image}
+                  />
+                );
+              })
+            : store.map((product) => {
+                return (
+                  <Products
+                    key={product.id}
+                    id={product.id}
+                    name={product.title}
+                    //  category = {product.category}
+                    about={product.description}
+                    price={product.price}
+                    image={product.image}
+                  />
+                );
+              })}
+        </div>
+        <div className="show-more-btn">
+          <button onClick={showMore}>
+            {hideOptions ? "Show More" : "Hide"}
+          </button>
         </div>
       </div>
     </>
