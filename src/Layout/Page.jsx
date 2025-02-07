@@ -55,48 +55,50 @@ const Page = () => {
 
   return (
     <>
-      {isLoading && <Loading />}
-
-      <div className="main-page">
-        <Banners />
-        <div className="title-box">
-          <h2 className="title">STORE</h2>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="main-page">
+          <Banners />
+          <div className="title-box">
+            <h2 className="title">STORE</h2>
+          </div>
+          <div className="products-grid">
+            {hideOptions
+              ? visibleOptions.map((product) => {
+                  return (
+                    <Products
+                      key={product.id}
+                      id={product.id}
+                      name={product.title}
+                      //  category = {product.category}
+                      about={product.description}
+                      price={product.price}
+                      image={product.image}
+                    />
+                  );
+                })
+              : store.map((product) => {
+                  return (
+                    <Products
+                      key={product.id}
+                      id={product.id}
+                      name={product.title}
+                      //  category = {product.category}
+                      about={product.description}
+                      price={product.price}
+                      image={product.image}
+                    />
+                  );
+                })}
+          </div>
+          <div className="show-more-btn">
+            <button onClick={showMore}>
+              {hideOptions ? "Show More" : "Hide"}
+            </button>
+          </div>
         </div>
-        <div className="products-grid">
-          {hideOptions
-            ? visibleOptions.map((product) => {
-                return (
-                  <Products
-                    key={product.id}
-                    id={product.id}
-                    name={product.title}
-                    //  category = {product.category}
-                    about={product.description}
-                    price={product.price}
-                    image={product.image}
-                  />
-                );
-              })
-            : store.map((product) => {
-                return (
-                  <Products
-                    key={product.id}
-                    id={product.id}
-                    name={product.title}
-                    //  category = {product.category}
-                    about={product.description}
-                    price={product.price}
-                    image={product.image}
-                  />
-                );
-              })}
-        </div>
-        <div className="show-more-btn">
-          <button onClick={showMore}>
-            {hideOptions ? "Show More" : "Hide"}
-          </button>
-        </div>
-      </div>
+      )}
     </>
   );
 };

@@ -1,17 +1,19 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Router, Routes, Route } from "react-router-dom";
 import Loading from "../Components/Loading";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import PreviewHeader from "../Layout/PreviewHeader";
 import Footer from "../Layout/Footer";
+import CartPage from "../Pages/CartPage";
 
 const preview = () => {
   const { id } = useParams();
   const [info, setInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isAdded, setIsAdded] = useState(false);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -32,9 +34,12 @@ const preview = () => {
     fetchProduct();
   }, []);
 
-  function add() {
-    return setIsAdded((prevState) => !prevState);
-  }
+  const addItemToCart = (item) => {
+    setIsAdded((prevState) => !prevState);
+    const updatedCart = [...cart, item];
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
 
   return (
     <>
@@ -92,13 +97,26 @@ const preview = () => {
                   *stock left: {info.rating.count}
                 </p>
               </div>
-              <button className="add-to-cart-btn" onClick={add}>
+              <button
+                className="add-to-cart-btn"
+                onClick={() =>
+                  addItemToCart({ id: 1, name: "Item 1", price: 10 })
+                }
+              >
                 {!isAdded ? "Add To Cart" : "Added"}
               </button>
             </aside>
           </div>
         </div>
       )}
+
+      <Routes>
+        <Route
+          path="/cart"
+          element={<CartPage cart={cart} setCart={setCart} />}
+        />
+      </Routes>
+
       <Footer />
     </>
   );

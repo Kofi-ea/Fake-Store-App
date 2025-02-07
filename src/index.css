@@ -135,7 +135,7 @@
   font-size: 1.1rem;
   border: 1px solid white;
   cursor: pointer;
-  transition: all 4s ease-in-out;
+  transition: all 6s ease-in-out;
   height: fit-content;
 }
 @keyframes bounce {
@@ -222,10 +222,14 @@ aside .info {
   border-color: white;
   color: white;
 }
+.cart-page {
+  min-height: 100vh;
+}
 
 .footer {
   background-color: rgb(20, 20, 20);
   display: flex;
   justify-content: center;
   color: white;
+  height: 60px;
 }
