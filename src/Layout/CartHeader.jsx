@@ -21,11 +21,9 @@ const CartHeader = ({ cart }) => {
           </ul>
         </div>
         <div className="cart-link">
-          <Link to={"/cart"}>
-            <li>
-              Cart <span>( {cart.length} )</span>
-            </li>
-          </Link>
+          <li>
+            Cart <span>( {cart.length} )</span>
+          </li>
         </div>
       </div>
     </>

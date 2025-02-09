@@ -256,12 +256,66 @@ aside .info {
   display: flex;
   align-items: center;
   width: 30%;
+  background-color: darkviolet;
 }
 
 .product img {
   height: 80px;
   width: 80px;
   margin-right: 10px;
+}
+
+.price {
+  width: 5%;
+  background-color: blue;
+}
+
+.quantity {
+  width: 10%;
+  background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  background-color: aqua;
+  width: 13%;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+.mini-checkout-box {
+  background-color: gray;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+.mini-checkout {
+  width: 35%;
+  background-color: blue;
+  flex-direction: column;
+  height: 250px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.subtotal,
+.tax,
+.discount {
+  display: flex;
+  justify-content: space-between;
+  height: 25px;
+  padding: 15px 0px;
+  border-bottom: 1px solid black;
+}
+.grand-total {
+  display: flex;
+  justify-content: space-between;
+  height: 25px;
+  padding: 15px 0px;
 }
 
 .footer {

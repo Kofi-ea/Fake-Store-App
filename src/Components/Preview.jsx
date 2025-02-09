@@ -55,7 +55,8 @@ const preview = () => {
 
       if (!isProductInCart) {
         // If the product isn't already in the cart, add it to the cart
-        const updatedCart = [...prevCart, info];
+        const updatedInfo = { ...info, quantity: 1 };
+        const updatedCart = [...prevCart, updatedInfo];
 
         // Save the updated cart back to localStorage
         localStorage.setItem("cart", JSON.stringify(updatedCart));
@@ -63,7 +64,7 @@ const preview = () => {
         // Update the state to reflect the changes in the UI
         setCart(updatedCart);
       } else {
-        console.log("This product is already in the cart.");
+        alert("This product is already in the cart.");
       }
     } catch (error) {
       console.error("Error while adding item to cart:", error);
