@@ -222,57 +222,80 @@ aside .info {
   border-color: white;
   color: white;
 }
+
+.empty-cart {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+.empty-cart-msg {
+  text-align: center;
+  line-height: 2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.empty-cart-msg button {
+  padding: 20px;
+  background-color: black;
+  font-weight: bold;
+  font-size: 1.3rem;
+  border-radius: 30px;
+  cursor: pointer;
+  color: white;
+  border: 1px solid black;
+}
 .cart-page {
   min-height: 100vh;
-  background-color: pink;
   padding: 25px 15px 10px 15px;
 }
 
 .cart-title {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .table-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .cart-item {
-  background-color: red;
   display: grid;
+  border-bottom: 1px solid black;
+  margin-top: 40px;
 }
 .cart-item-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: rgb(21, 176, 26);
-  border: 1px solid black;
-  height: 100px;
+  border-top: 1px solid black;
+  height: 150px;
   align-items: center;
   width: 100%;
+  margin-top: 15px;
+  font-size: 1.2rem;
 }
 .product {
   display: flex;
   align-items: center;
   width: 30%;
-  background-color: darkviolet;
 }
 
 .product img {
-  height: 80px;
-  width: 80px;
+  height: 90px;
+  width: 90px;
   margin-right: 10px;
 }
 
 .price {
   width: 5%;
-  background-color: blue;
 }
 
 .quantity {
   width: 10%;
-  background-color: yellow;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -282,23 +305,21 @@ aside .info {
 .total {
   display: flex;
   align-items: center;
-  background-color: aqua;
   width: 13%;
   justify-content: space-between;
   padding-right: 10px;
 }
 .mini-checkout-box {
-  background-color: gray;
   width: 100%;
   display: flex;
   justify-content: right;
+  font-size: 1.2rem;
 }
 
 .mini-checkout {
   width: 35%;
-  background-color: blue;
   flex-direction: column;
-  height: 250px;
+  height: 360px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -316,6 +337,33 @@ aside .info {
   justify-content: space-between;
   height: 25px;
   padding: 15px 0px;
+}
+
+.checkout-btns {
+  height: 300px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.checkout-btns button {
+  padding: 10px;
+  font-size: 1.1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid black;
+  text-transform: uppercase;
+}
+
+.checkout-modal {
+  position: absolute;
+  background-color: rgba(11, 11, 11, 0.98);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  color: white;
+  z-index: 100;
 }
 
 .footer {
