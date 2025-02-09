@@ -1,43 +1,44 @@
 import React from "react";
-import { FaSquareXmark, FaSquareMinus, FaSquarePlus } from "react-icons/fa6";
+import { FaSquareXmark } from "react-icons/fa6";
 
 const CheckoutModal = ({ close, cart }) => {
   return (
     <>
       <div className="checkout-modal">
-        <h1>Welcome to Checkout</h1>
+        <p className="checkout-title">Welcome to Checkout</p>
         <FaSquareXmark onClick={close} />
-        {cart.map((info) => (
-          <div key={info.title}>
-            <div>
-              <img src={info.image} alt={info.title} />
-              <p>{info.title}</p>
-            </div>
 
-            <p>${info.price}</p>
-            <p className="quantity">
-              <FaSquareMinus
-                onClick={() => decreaseQuantity(info.id)}
-                style={{ cursor: "pointer" }}
-              />
-              {info.quantity}
-              <FaSquarePlus
-                onClick={() => increaseQuantity(info.id)}
-                style={{ cursor: "pointer" }}
-              />
-            </p>
-            <div className="total">
-              <p>${info.quantity.toFixed(2) * info.price.toFixed(2)}</p>
+        <div className="checkout-summary">
+          <div className="review-order">
+            {cart.map((info) => (
+              <div key={info.title} className="review-order-div">
+                <div className="review-product">
+                  <img src={info.image} alt={info.title} />
+                  <p>{info.title}</p>
+                </div>
 
-              <button
-                onClick={() => removeItemFromCart(info)}
-                style={{ cursor: "pointer" }}
-              >
-                Remove
-              </button>
-            </div>
+                <div className="review-product-aside">
+                  <p>Price: ${info.price}</p>
+                  <p>Quantity: {info.quantity}</p>
+                  <div>
+                    <p>
+                      Total: ${info.quantity.toFixed(2) * info.price.toFixed(2)}
+                    </p>
+                    <div className="edit-btns">
+                      <button>Update</button>
+                      <button onClick={() => removeItemFromCart(info)}>
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+          <div className="order-summary">
+            <h1>Order Summary</h1>
+          </div>
+        </div>
       </div>
     </>
   );

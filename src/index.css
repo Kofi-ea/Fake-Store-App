@@ -364,6 +364,60 @@ aside .info {
   left: 0;
   color: white;
   z-index: 100;
+  margin: auto;
+}
+.checkout-title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.checkout-summary {
+  display: flex;
+  width: 100%;
+  background-color: brown;
+  padding: 20px;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.review-order {
+  width: 55%;
+  background-color: pink;
+  height: 120px;
+}
+.review-order-div {
+  display: flex;
+  flex-direction: row;
+  height: 120px;
+}
+.review-product {
+  background-color: blue;
+  display: flex;
+  font-size: 1.2rem;
+  width: 100%;
+}
+.review-product img {
+  height: 90px;
+  width: 90px;
+}
+.review-product-aside {
+  background-color: rgb(120, 210, 30);
+  width: 60%;
+  font-size: 1.3rem;
+  text-align: right;
+}
+.edit-btns {
+  background-color: yellow;
+}
+.edit-btns button {
+  cursor: pointer;
+  padding: 8px;
+  font-size: 1.1rem;
+  border: 1px solid black;
+}
+.order-summary {
+  width: 40%;
+  background-color: green;
 }
 
 .footer {

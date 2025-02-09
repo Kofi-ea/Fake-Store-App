@@ -68,9 +68,7 @@ const CartPage = () => {
 
   return (
     <>
-      {!wantsCheckout && (
-        <CheckoutModal close={proceedToCheckout} cart={cart} />
-      )}
+      {wantsCheckout && <CheckoutModal close={proceedToCheckout} cart={cart} />}
       <CartHeader cart={cart} />
       {cart.length == 0 ? (
         <div className="empty-cart">
