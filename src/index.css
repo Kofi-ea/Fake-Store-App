@@ -224,12 +224,51 @@ aside .info {
 }
 .cart-page {
   min-height: 100vh;
+  background-color: pink;
+  padding: 25px 15px 10px 15px;
+}
+
+.cart-title {
+  text-align: center;
+}
+.table-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cart-item {
+  background-color: red;
+  display: grid;
+}
+.cart-item-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(21, 176, 26);
+  border: 1px solid black;
+  height: 100px;
+  align-items: center;
+  width: 100%;
+}
+.product {
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+
+.product img {
+  height: 80px;
+  width: 80px;
+  margin-right: 10px;
 }
 
 .footer {
   background-color: rgb(20, 20, 20);
   display: flex;
   justify-content: center;
+  align-items: center;
   color: white;
   height: 60px;
 }
