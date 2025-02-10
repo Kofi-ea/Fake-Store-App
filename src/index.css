@@ -358,7 +358,7 @@ aside .info {
 .checkout-modal {
   position: absolute;
   background-color: rgba(11, 11, 11, 0.98);
-  top: 0;
+  top: 80px;
   bottom: 0;
   right: 0;
   left: 0;
@@ -383,18 +383,20 @@ aside .info {
 .review-order {
   width: 55%;
   background-color: pink;
-  height: 120px;
+  height: 100vh;
 }
 .review-order-div {
   display: flex;
   flex-direction: row;
   height: 120px;
+  border: 2px solid rgb(249, 247, 247);
 }
 .review-product {
   background-color: blue;
   display: flex;
   font-size: 1.2rem;
   width: 100%;
+  padding: 2px;
 }
 .review-product img {
   height: 90px;
@@ -408,18 +410,96 @@ aside .info {
 }
 .edit-btns {
   background-color: yellow;
+  margin-top: 5px;
 }
 .edit-btns button {
   cursor: pointer;
-  padding: 8px;
+  padding: 5px;
   font-size: 1.1rem;
   border: 1px solid black;
+  background-color: white;
+  color: black;
+  margin-left: 10px;
 }
 .order-summary {
-  width: 40%;
+  width: 33%;
   background-color: green;
+  height: fit-content;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-right: 40px;
+  padding: 10px;
+}
+.order-info {
+  border-bottom: 1px solid white;
+  height: 200px;
+  margin-bottom: 15px;
+}
+.items,
+.before-tax,
+.estimated-tax {
+  display: flex;
+  justify-content: space-between;
+  line-height: 3;
+  font-size: 1.4rem;
+}
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  color: red;
+  font-size: 1.8rem;
+}
+.order-btn {
+  margin: 15px 0px;
+  padding: 13px;
+  font-size: 1.2rem;
+  border: 2px solid white;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  width: 300px;
 }
 
+.order-page {
+  min-height: 100vh;
+  padding: 30px;
+}
+.order-list {
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.order-details-header {
+  display: flex;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  height: 70px;
+  font-size: 1.3rem;
+  align-items: center;
+}
+.order-details {
+  display: flex;
+  width: 100%;
+  background-color: rgb(160, 161, 161);
+
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.order-desc {
+  display: flex;
+  width: 55%;
+}
+.order-desc img {
+  height: 250px;
+  width: 250px;
+}
+.order-desc-info {
+  line-height: 1.4;
+}
 .footer {
   background-color: rgb(20, 20, 20);
   display: flex;

@@ -68,7 +68,16 @@ const CartPage = () => {
 
   return (
     <>
-      {wantsCheckout && <CheckoutModal close={proceedToCheckout} cart={cart} />}
+      {wantsCheckout && (
+        <CheckoutModal
+          close={proceedToCheckout}
+          cart={cart}
+          setCart={setCart}
+          subtotal={calculateSubtotal()}
+          tax={calculateTax().toFixed(2)}
+          orderTotal={calculateGrandTotal().toFixed(2)}
+        />
+      )}
       <CartHeader cart={cart} />
       {cart.length == 0 ? (
         <div className="empty-cart">
