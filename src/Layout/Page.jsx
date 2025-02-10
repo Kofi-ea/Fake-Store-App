@@ -37,6 +37,16 @@ const Page = () => {
     received();
   }, []);
 
+  const categories = store.reduce(
+    (values, item) => {
+      if (!values.includes(item.category)) {
+        values.push(item.category);
+      }
+      return values;
+    },
+    ["All"]
+  );
+
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
     setActiveButton(category);
@@ -61,42 +71,17 @@ const Page = () => {
           </div>
           <div>
             <div className="filter-btns">
-              <button
-                onClick={() => handleCategoryClick("All")}
-                className={activeButton === "All" ? "active" : "inactive"}
-              >
-                All
-              </button>
-              <button
-                onClick={() => handleCategoryClick("men's clothing")}
-                className={
-                  activeButton === "men's clothing" ? "active" : "inactive"
-                }
-              >
-                Men's clothing
-              </button>
-              <button
-                onClick={() => handleCategoryClick("women's clothing")}
-                className={
-                  activeButton === "women's clothing" ? "active" : "inactive"
-                }
-              >
-                Women's clothing
-              </button>
-              <button
-                onClick={() => handleCategoryClick("jewelery")}
-                className={activeButton === "jewelery" ? "active" : "inactive"}
-              >
-                Jewellry
-              </button>
-              <button
-                onClick={() => handleCategoryClick("electronics")}
-                className={
-                  activeButton === "electronics" ? "active" : "inactive"
-                }
-              >
-                Electronics
-              </button>
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => handleCategoryClick(category)}
+                  className={
+                    selectedCategory === category ? "active" : "inactive"
+                  }
+                >
+                  {category}
+                </button>
+              ))}
             </div>
 
             <div className="products-grid">
