@@ -47,10 +47,10 @@ const preview = () => {
   const addToCart = (info) => {
     setIsAdded((prevState) => !prevState);
     try {
-      // Retrieve the existing cart or use an empty array if not found
+      // get the existing cart or use an empty array if not found
       const prevCart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      // Check if the product is already in the cart (by checking product ID)
+      // Check if the product is already in the cart by checking product ID
       const isProductInCart = prevCart.some((item) => item.id === info.id);
 
       if (!isProductInCart) {
@@ -61,7 +61,7 @@ const preview = () => {
         // Save the updated cart back to localStorage
         localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-        // Update the state to reflect the changes in the UI
+        // Update the state to reflect the changes
         setCart(updatedCart);
       } else {
         alert("This product is already in the cart.");
@@ -77,7 +77,7 @@ const preview = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <div style={{ minHeight: "100vh" }}>
+        <div style={{ minHeight: "100vh", marginTop: "100px" }}>
           <Link to={"/"} style={{ textDecoration: "none" }}>
             <button className="back-btn">
               <FaArrowLeft />

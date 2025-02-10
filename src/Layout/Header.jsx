@@ -19,20 +19,11 @@ const Header = () => {
             alt=""
           />
           <ul className="menu">
-            <li>Publicly Available</li>
+            <Link to={"/"}>
+              <li>Publicly Available</li>{" "}
+            </Link>
             <li>Archived</li>
             <li>About</li>
-            <li className="collection" onClick={show}>
-              Collection
-            </li>
-            {showCollection && (
-              <ul className="collection-menu">
-                <li>Type 1</li>
-                <li>Type 2</li>
-                <li>Type 3</li>
-                <li>Type 4</li>
-              </ul>
-            )}
           </ul>
         </div>
         <div className="cart-link">

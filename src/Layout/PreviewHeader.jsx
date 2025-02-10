@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const PreviewHeader = () => {
   return (
     <>
-      <div className="heading">
+      <div className="heading" style={{ top: "0" }}>
         <div className="logo-container">
           <img
             className="logo"

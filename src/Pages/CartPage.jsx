@@ -185,8 +185,8 @@ const CartPage = () => {
           </div>
         </div>
       )}
-
-      <Footer />
+      {/* 
+      <Footer /> */}
     </>
   );
 };
