@@ -1,5 +1,4 @@
 import React from "react";
-import { FaSquareXmark } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const CheckoutModal = ({ close, cart, setCart, subtotal, tax, orderTotal }) => {
@@ -12,16 +11,6 @@ const CheckoutModal = ({ close, cart, setCart, subtotal, tax, orderTotal }) => {
     <>
       <div className="checkout-modal">
         <p className="checkout-modal-title">Welcome to Checkout</p>
-        <FaSquareXmark
-          onClick={close}
-          style={{
-            position: "absolute",
-            right: "20",
-            top: "5",
-            fontSize: "1.5rem",
-            color: "red",
-          }}
-        />
 
         <div className="checkout-summary">
           <div className="review-order">
@@ -84,6 +73,9 @@ const CheckoutModal = ({ close, cart, setCart, subtotal, tax, orderTotal }) => {
               <button className="order-btn">Place your order</button>
             </Link>
           </div>
+        </div>
+        <div className="close-checkout-btn-box">
+          <button onClick={close}>close checkout</button>
         </div>
       </div>
     </>
