@@ -11,7 +11,7 @@ const CheckoutModal = ({ close, cart, setCart, subtotal, tax, orderTotal }) => {
   return (
     <>
       <div className="checkout-modal">
-        <p className="checkout-title">Welcome to Checkout</p>
+        <p className="checkout-modal-title">Welcome to Checkout</p>
         <FaSquareXmark
           onClick={close}
           style={{
@@ -40,9 +40,14 @@ const CheckoutModal = ({ close, cart, setCart, subtotal, tax, orderTotal }) => {
                       Total: ${info.quantity.toFixed(2) * info.price.toFixed(2)}
                     </p>
                     <div className="edit-btns">
-                      <button onClick={close}>Update</button>
+                      <button onClick={close} className="update-item-btn">
+                        Update
+                      </button>
 
-                      <button onClick={() => removeItemFromCart(info)}>
+                      <button
+                        onClick={() => removeItemFromCart(info)}
+                        className="remove-item-btn"
+                      >
                         Remove
                       </button>
                     </div>

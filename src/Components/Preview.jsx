@@ -6,13 +6,14 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import PreviewHeader from "../Layout/PreviewHeader";
 import Footer from "../Layout/Footer";
+import AddToCartBtn from "./AddToCartBtn";
 
 const preview = () => {
   const { id } = useParams();
   const [info, setInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isAdded, setIsAdded] = useState(false);
   const [cart, setCart] = useState([]);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -33,19 +34,9 @@ const preview = () => {
     fetchProduct();
   }, []);
 
-  // const addToCart = (info) => {
-
-  //   const prevCart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  //   const updatedCart = [...prevCart, info];
-
-  //   localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-  //   setCart(updatedCart);
-  // };
-
   const addToCart = (info) => {
-    setIsAdded((prevState) => !prevState);
+    // setIsAdded((prevState) => !prevState);
+
     try {
       // get the existing cart or use an empty array if not found
       const prevCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -63,6 +54,7 @@ const preview = () => {
 
         // Update the state to reflect the changes
         setCart(updatedCart);
+        setIsActive(!isActive);
       } else {
         alert("This product is already in the cart.");
       }
@@ -73,7 +65,7 @@ const preview = () => {
 
   return (
     <>
-      <PreviewHeader />
+      <PreviewHeader cart={cart} />
       {isLoading ? (
         <Loading />
       ) : (
@@ -127,12 +119,13 @@ const preview = () => {
                   *stock left: {info.rating.count}
                 </p>
               </div>
-              <button
-                className="add-to-cart-btn"
+              <AddToCartBtn add={() => addToCart(info)} productId={info.id} />
+              {/* <button
                 onClick={() => addToCart(info)}
+                className={isActive && "active"}
               >
                 {!isAdded ? "Add To Cart" : "Added"}
-              </button>
+              </button> */}
             </aside>
           </div>
         </div>

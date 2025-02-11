@@ -42,6 +42,7 @@ const CartPage = () => {
     const updatedCart = cart.filter((info) => info.id !== itemToRemove.id);
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+    localStorage.removeItem(`added-${itemToRemove.id}`);
   };
 
   const calculateSubtotal = () => {
@@ -166,6 +167,7 @@ const CartPage = () => {
                 <button
                   style={{ backgroundColor: "white", color: "black" }}
                   onClick={proceedToCheckout}
+                  className="proceed-to-checkout-btn"
                 >
                   Proceed to checkout
                 </button>
@@ -176,6 +178,7 @@ const CartPage = () => {
                       backgroundColor: "black",
                       color: "white",
                     }}
+                    className="continue-shopping-btn"
                   >
                     Continue shopping!!!
                   </button>

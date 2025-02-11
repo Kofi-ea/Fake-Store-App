@@ -9,7 +9,7 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
   // const [visibleOptions, setVisibleOptions] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [allOptions, setAllOptions] = useState(true);
   const [activeButton, setActiveButton] = useState("All");
 
@@ -25,7 +25,15 @@ const Page = () => {
 
       setStore(data);
       // setVisibleOptions(data.slice(0, 8));
-      setFilteredData(data);
+
+      const savedCategory = localStorage.getItem("selectedCategory");
+
+      if (savedCategory) {
+        setSelectedCategory(savedCategory);
+        applyCategoryFilter(savedCategory, data);
+      } else {
+        setFilteredData(data); // No filter applied
+      }
     } catch (error) {
       console.log("Something went wrong", error);
     }
@@ -49,8 +57,13 @@ const Page = () => {
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
+    localStorage.setItem("selectedCategory", category);
     setActiveButton(category);
 
+    applyCategoryFilter(category, store);
+  };
+
+  const applyCategoryFilter = (category, store) => {
     if (category === "All") {
       setFilteredData(store);
     } else {
