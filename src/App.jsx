@@ -23,7 +23,7 @@ const App = () => {
           <Route path="/preview/" element={<ProductPreview />} />
           <Route path="/preview/:id/*" element={<Preview />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/order" element={<OrderPage />} />
+          <Route path="/orders" element={<OrderPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

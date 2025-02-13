@@ -2,8 +2,22 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import Header from "../Layout/Header";
 import Footer from "../Layout/Footer";
+import { useLocation } from "react-router-dom";
 
 const OrderPage = () => {
+  const location = useLocation();
+  // const { cart } = location.state || {};
+  // console.log(location);
+  // const cart = location.state ? location.state.cart : [];
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page
+  }, []);
+
+  const cart = Array.isArray(location.state?.cartItems)
+    ? location.state.cartItems
+    : [];
+  const tax = Number(location.state?.tax || 0);
+
   const date = new Date();
   const options = {
     weekday: "long",
@@ -12,6 +26,26 @@ const OrderPage = () => {
     day: "numeric",
   };
   const fullDate = date.toLocaleDateString("en-US", options);
+
+  function generateOrderId(length) {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    const charactersLength = characters.length;
+
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+  }
+  let randomId = generateOrderId(10);
+
+  const totalPrice = cart.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+
+  const orderPriceTotal = (totalPrice + tax).toFixed(2);
 
   return (
     <>
@@ -23,23 +57,35 @@ const OrderPage = () => {
         <div className="order-list">
           <div className="order-details-header">
             <p>Ordered on : {fullDate}</p>
-            <p>Total: $350.56</p>
-            <p>Order Id: 23wgr-456-t453</p>
+            <p>Total: ${orderPriceTotal}</p>
+            <p>Order Id: {randomId}</p>
           </div>
-          <div className="order-details">
-            <div className="order-desc">
-              <img
-                src="https://gh.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/57/642274/1.jpg?8420"
-                alt="black socks"
-              />
-              <div className="order-desc-info">
-                <p>Black and Gray athletic socks</p>
-                <p>Quantity : 2</p>
-                <p>Category : Men's clothing</p>
-              </div>
-            </div>
-            <div>$20.45</div>
-          </div>
+
+          {cart && cart.length > 0 ? (
+            cart.map((order) => {
+              return (
+                // Add return here to return JSX
+                <div className="order-details" key={order.id}>
+                  {" "}
+                  {/* It's good practice to include a unique key */}
+                  <div className="order-desc">
+                    <img src={order.image} alt={order.title} />
+                    <div className="order-desc-info">
+                      <p>{order.title}</p>{" "}
+                      {/* Make sure you're accessing the correct property */}
+                      <p>Quantity : {order.quantity}</p>{" "}
+                      {/* Ensure this is the correct property for quantity */}
+                      <p>Price : ${order.price}</p>
+                    </div>
+                  </div>
+                  <div>${(order.price * order.quantity).toFixed(2)}</div>{" "}
+                  {/* If you want to calculate total price */}
+                </div>
+              );
+            })
+          ) : (
+            <p>No Orders</p>
+          )}
         </div>
       </div>
       <Footer />

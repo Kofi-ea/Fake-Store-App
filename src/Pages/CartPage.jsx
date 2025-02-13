@@ -5,10 +5,12 @@ import Footer from "../Layout/Footer";
 import { FaCircleXmark, FaSquarePlus, FaSquareMinus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import CheckoutModal from "../Components/CheckoutModal";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   const [cart, setCart] = useState([]);
   const [wantsCheckout, setWantsCheckOut] = useState(false);
+  const navigate = useNavigate();
 
   // if (!cart) {
   //   return <p>Loading cart...</p>;
@@ -56,6 +58,10 @@ const CartPage = () => {
     const taxRate = 0.1; // 10% tax
     return subtotal * taxRate;
   };
+  const subtotal = calculateSubtotal();
+  const taxRate = 0.1; // 10% tax
+  const tax = (subtotal * taxRate).toFixed(2);
+  console.log(tax);
 
   const calculateGrandTotal = () => {
     const subtotal = calculateSubtotal();
@@ -66,6 +72,9 @@ const CartPage = () => {
   function proceedToCheckout() {
     return setWantsCheckOut((prevState) => !prevState);
   }
+  const placeOrder = () => {
+    navigate("/orders", { state: { cartItems: cart, tax } });
+  };
 
   return (
     <>
@@ -77,6 +86,7 @@ const CartPage = () => {
           subtotal={calculateSubtotal()}
           tax={calculateTax().toFixed(2)}
           orderTotal={calculateGrandTotal().toFixed(2)}
+          placeOrder={placeOrder}
         />
       )}
       <CartHeader cart={cart} />
@@ -189,7 +199,7 @@ const CartPage = () => {
         </div>
       )}
 
-      <Footer carts={cart.length} />
+      <Footer cart={cart} />
     </>
   );
 };

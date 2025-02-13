@@ -85,7 +85,7 @@ html {
 }
 
 .main-page {
-  background-color: rgb(239, 238, 238);
+  background-color: rgb(232, 231, 231);
   min-height: 100vh;
   color: rgb(2, 2, 2);
   width: 100%;
@@ -474,7 +474,7 @@ aside .info {
 .order-summary {
   width: 33%;
 
-  border: 2px solid white;
+  border: 2px solid red;
   height: fit-content;
 
   margin-right: 40px;
@@ -520,6 +520,10 @@ aside .info {
   font-size: 1.3rem;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: red;
+  color: white;
+  border: none;
+  text-transform: uppercase;
 }
 
 .order-page {
@@ -528,8 +532,9 @@ aside .info {
 }
 .order-list {
   border: 2px solid black;
+  background-color: black;
   border-radius: 20px;
-  padding: 5px;
+  /* padding: 5px; */
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 40px;
 }
@@ -547,22 +552,23 @@ aside .info {
 .order-details {
   display: flex;
   width: 100%;
-  background-color: rgb(160, 161, 161);
-
+  background-color: rgb(239, 240, 240);
   margin-bottom: 15px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .order-desc {
   display: flex;
   width: 55%;
+  font-weight: bold;
 }
 .order-desc img {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
 }
 .order-desc-info {
   line-height: 1.4;
+  width: 80%;
 }
 .footer {
   background-color: rgb(20, 20, 20);

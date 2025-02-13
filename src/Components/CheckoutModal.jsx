@@ -1,12 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-const CheckoutModal = ({ close, cart, setCart, subtotal, tax, orderTotal }) => {
+const CheckoutModal = ({
+  close,
+  cart,
+  setCart,
+  subtotal,
+  tax,
+  orderTotal,
+  placeOrder,
+}) => {
+  // const navigate = useNavigate();
+
   const removeItemFromCart = (itemToRemove) => {
     const updatedCart = cart.filter((info) => info.id !== itemToRemove.id);
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
+
+  console.log(Array.isArray(cart));
+  console.log(cart);
+
   return (
     <>
       <div className="checkout-modal">
@@ -69,9 +83,10 @@ const CheckoutModal = ({ close, cart, setCart, subtotal, tax, orderTotal }) => {
               <p>Order Total : </p>
               <p>${orderTotal}</p>
             </div>
-            <Link to={"/order"}>
-              <button className="order-btn">Place your order</button>
-            </Link>
+
+            <button className="order-btn" onClick={placeOrder}>
+              Place your order
+            </button>
           </div>
         </div>
         <div className="close-checkout-btn-box">

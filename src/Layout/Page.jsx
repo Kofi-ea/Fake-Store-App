@@ -79,9 +79,9 @@ const Page = () => {
       ) : (
         <div className="main-page">
           <Banners />
-          <div className="title-box">
+          {/* <div className="title-box">
             <h2 className="title">STORE</h2>
-          </div>
+          </div> */}
           <div>
             <div className="filter-btns">
               {categories.map((category) => (
