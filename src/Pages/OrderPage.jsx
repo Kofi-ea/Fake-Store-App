@@ -50,6 +50,7 @@ const OrderPage = () => {
   return (
     <>
       <Header />
+
       <div className="order-page">
         <h1 style={{ textAlign: "center", fontFamily: "arial" }}>
           Your Orders
@@ -58,7 +59,7 @@ const OrderPage = () => {
           <div className="order-details-header">
             <p>Ordered on : {fullDate}</p>
             <p>Total: ${orderPriceTotal}</p>
-            <p>Order Id: {randomId}</p>
+            {cart.length < 1 ? <p>Order Id: </p> : <p>Order Id: {randomId}</p>}
           </div>
 
           {cart && cart.length > 0 ? (
