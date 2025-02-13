@@ -65,7 +65,7 @@ const preview = () => {
 
   return (
     <>
-      <PreviewHeader cart={cart} />
+      <PreviewHeader cart={cart.length} />
       {isLoading ? (
         <Loading />
       ) : (

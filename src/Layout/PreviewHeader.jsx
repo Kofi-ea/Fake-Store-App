@@ -22,7 +22,7 @@ const PreviewHeader = ({ cart }) => {
         <div className="cart-link">
           <Link to={"/cart"}>
             <li>
-              Cart <span>( {cart.length} )</span>
+              Cart <span>( {cart} )</span>
             </li>
           </Link>
         </div>

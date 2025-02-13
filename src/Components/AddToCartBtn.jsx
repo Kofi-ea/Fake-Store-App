@@ -21,7 +21,7 @@ const AddToCartBtn = ({ add, productId }) => {
     <>
       <button
         onClick={handleClick}
-        disabled={isAdded}
+        // disabled={isAdded}
         className={`add-to-cart-btn ${isAdded ? "added" : ""}`}
       >
         {isAdded ? "Added" : "Add to cart"}

@@ -188,8 +188,8 @@ const CartPage = () => {
           </div>
         </div>
       )}
-      {/* 
-      <Footer /> */}
+
+      <Footer carts={cart.length} />
     </>
   );
 };
