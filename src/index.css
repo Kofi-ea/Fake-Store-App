@@ -94,9 +94,9 @@ html {
   padding: 1px;
   transition: all 6s ease-in;
 }
-/* .loading-page {
-  background-color: rgba(11, 11, 11, 1);
-} */
+.loading-page {
+  background-color: rgb(232, 231, 231);
+}
 
 @keyframes page {
   0% {
@@ -110,7 +110,7 @@ html {
 }
 
 .main-page {
-  animation: page 1s ease-in;
+  animation: page 1.5s ease-in;
 }
 
 .product-image {
