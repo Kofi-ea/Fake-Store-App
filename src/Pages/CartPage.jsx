@@ -168,8 +168,10 @@ const CartPage = () => {
                 <Link to={"#"}>Add Coupon</Link>
               </div>
               <div className="grand-total">
-                <p style={{ fontWeight: "bold" }}>Grand Total:</p>
-                <p style={{ fontSize: "1.5rem" }}>
+                <p style={{ fontWeight: "bold", fontSize: "1.8rem" }}>
+                  Grand Total:
+                </p>
+                <p style={{ fontSize: "1.8rem" }}>
                   ${calculateGrandTotal().toFixed(2)}
                 </p>
               </div>

@@ -65,12 +65,12 @@ const CheckoutModal = ({
             <div className="order-info">
               <div className="items">
                 <p>Items ({cart.length}) :</p>
-                <p>${subtotal}</p>
+                <p>${subtotal.toFixed(2)}</p>
               </div>
 
               <div className="before-tax">
                 <p>Total before Tax: </p>
-                <p>${subtotal}</p>
+                <p>${subtotal.toFixed(2)}</p>
               </div>
 
               <div className="estimated-tax">

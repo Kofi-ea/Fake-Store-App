@@ -1,4 +1,5 @@
 import React from "react";
+import SpinnerLoader from "./SpinnerLoader";
 
 const Loading = () => {
   return (
@@ -15,6 +16,7 @@ const Loading = () => {
       >
         <div>
           <h1>Loading...Please wait</h1>
+          <SpinnerLoader />
         </div>
       </div>
     </>

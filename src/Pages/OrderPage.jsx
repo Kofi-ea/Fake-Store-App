@@ -68,19 +68,14 @@ const OrderPage = () => {
                 // Add return here to return JSX
                 <div className="order-details" key={order.id}>
                   {" "}
-                  {/* It's good practice to include a unique key */}
                   <div className="order-desc">
                     <img src={order.image} alt={order.title} />
                     <div className="order-desc-info">
-                      <p>{order.title}</p>{" "}
-                      {/* Make sure you're accessing the correct property */}
-                      <p>Quantity : {order.quantity}</p>{" "}
-                      {/* Ensure this is the correct property for quantity */}
+                      <p>{order.title}</p> <p>Quantity : {order.quantity}</p>{" "}
                       <p>Price : ${order.price}</p>
                     </div>
                   </div>
                   <div>${(order.price * order.quantity).toFixed(2)}</div>{" "}
-                  {/* If you want to calculate total price */}
                 </div>
               );
             })

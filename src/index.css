@@ -86,10 +86,11 @@ html {
 
 .main-page {
   background-color: rgb(232, 231, 231);
+  /* background-color: red; */
   min-height: 100vh;
   color: rgb(2, 2, 2);
   width: 100%;
-  margin: auto;
+  /* margin: auto; */
   padding: 1px;
 }
 .product-image {
@@ -123,6 +124,8 @@ html {
   grid-template-columns: 320px 320px 320px 320px;
   gap: 20px;
   padding: 40px;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-design {
@@ -144,7 +147,7 @@ html {
 .product-design:hover {
   transform: scale(1.05);
 }
-.show-more-btn {
+/* .show-more-btn {
   text-align: center;
 }
 
@@ -168,10 +171,11 @@ html {
   }
 }
 
-/* Apply the animation to the button */
-.show-more-btn button {
+Apply the animation to the button */
+
+/* .show-more-btn button {
   animation: bounce 1s infinite;
-}
+} */
 
 .product-info {
   margin-top: 20px;
@@ -377,6 +381,7 @@ aside .info {
   justify-content: space-between;
   height: 25px;
   padding: 15px 0px;
+  font-weight: bold;
 }
 
 .checkout-btns {
@@ -411,7 +416,8 @@ aside .info {
 }
 .checkout-modal-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.4rem;
+  font-weight: bold;
   margin: 20px;
 }
 
@@ -559,7 +565,7 @@ aside .info {
 
 .order-desc {
   display: flex;
-  width: 55%;
+  width: 53%;
   font-weight: bold;
 }
 .order-desc img {
@@ -568,7 +574,7 @@ aside .info {
 }
 .order-desc-info {
   line-height: 1.4;
-  width: 80%;
+  width: 60%;
 }
 .footer {
   background-color: rgb(20, 20, 20);
