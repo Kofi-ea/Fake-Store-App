@@ -5,6 +5,7 @@ const Loading = () => {
   return (
     <>
       <div
+        className="loading-page"
         style={{
           display: "flex",
           justifyContent: "center",

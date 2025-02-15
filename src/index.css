@@ -92,7 +92,27 @@ html {
   width: 100%;
   /* margin: auto; */
   padding: 1px;
+  transition: all 6s ease-in;
 }
+/* .loading-page {
+  background-color: rgba(11, 11, 11, 1);
+} */
+
+@keyframes page {
+  0% {
+    /* transform: scale(0); */
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    /* transform: scale(1); */
+  }
+}
+
+.main-page {
+  animation: page 1s ease-in;
+}
+
 .product-image {
   width: 250px;
 }
@@ -162,20 +182,9 @@ html {
   transition: all 6s ease-in-out;
   height: fit-content;
 }
-@keyframes bounce {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.2);
-  }
-}
+
 
 Apply the animation to the button */
-
-/* .show-more-btn button {
-  animation: bounce 1s infinite;
-} */
 
 .product-info {
   margin-top: 20px;

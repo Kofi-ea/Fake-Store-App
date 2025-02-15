@@ -1,5 +1,6 @@
 import React from "react";
 import { ClipLoader } from "react-spinners";
+import { MoonLoader } from "react-spinners";
 
 const SpinnerLoader = () => {
   const override = {
