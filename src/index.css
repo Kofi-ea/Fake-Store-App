@@ -48,7 +48,6 @@ html {
 
 } */
 .filter-btns {
-  /* position: absolute; */
   display: flex;
   color: white;
   margin-top: 50px;
@@ -56,14 +55,16 @@ html {
   align-items: center;
   width: 100%;
   padding: 5px;
-  /* margin-top: 31px; */
+
   box-sizing: border-box;
 }
 .filter-btns button {
   padding: 10px 20px;
   cursor: pointer;
   font-size: 1rem;
-  margin: 5px;
+  height: 2em;
+  width: fit-content;
+  margin: 0.3em;
   border: 1px solid rgb(47, 47, 47);
 }
 
@@ -141,7 +142,7 @@ html {
 
 .products-grid {
   display: grid;
-  grid-template-columns: 320px 320px 320px 320px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
   padding: 40px;
   align-items: center;
@@ -283,7 +284,7 @@ aside .info {
 }
 .empty-cart-msg {
   text-align: center;
-  line-height: 2;
+  line-height: 1;
   font-family: Arial, Helvetica, sans-serif;
 }
 .empty-cart-msg button {
@@ -641,4 +642,30 @@ aside .info {
   background-color: white;
   color: black;
   cursor: pointer;
+}
+
+/* Mobile devices (portrait) */
+@media (max-width: 599px) {
+  .banners {
+    height: 250px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* gap: 20px;
+    padding: 40px;
+    align-items: center;
+    justify-content: center; */
+  }
+}
+
+/* Tablets and small laptops */
+@media (min-width: 600px) and (max-width: 1023px) {
+  /* Styles for medium-sized screens */
+}
+
+/* Large screens (desktops, larger tablets) */
+@media (min-width: 1024px) {
+  /* Styles for larger screens */
 }

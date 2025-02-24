@@ -6,16 +6,12 @@ const PreviewHeader = ({ cart }) => {
     <>
       <div className="heading" style={{ top: "0" }}>
         <div className="logo-container">
-          <img
-            className="logo"
-            src="https://images.squarespace-cdn.com/content/v1/6578b845fbaeb507c08c956b/105b77a2-7de6-484a-837d-9dc61d7cad5a/Logo03.png?format=1500w"
-            alt=""
-          />
+          <img className="logo" src="" alt="" />
           <ul className="menu">
             <Link to={"/"}>
-              <li>Publicly Available</li>{" "}
+              <li>Available</li>{" "}
             </Link>
-            <li>Archived</li>
+            <li>Careers</li>
             <li>About</li>
           </ul>
         </div>
