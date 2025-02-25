@@ -1,4 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+  Routes,
+  BrowserRouter,
+} from "react-router-dom";
 import React from "react";
 import HomePage from "./Pages/HomePage";
 import ProductPreview from "./Pages/ProductPreview";
@@ -10,7 +17,7 @@ import OrderPage from "./Pages/OrderPage";
 const App = () => {
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/preview/" element={<ProductPreview />} />
@@ -19,7 +26,7 @@ const App = () => {
           <Route path="/orders" element={<OrderPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </>
   );
 };
