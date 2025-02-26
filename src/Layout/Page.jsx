@@ -1,8 +1,9 @@
 import React from "react";
 import Products from "../Components/Products";
 import { useState, useEffect } from "react";
-import Loading from "../Components/Loading";
+// import Loading from "../Components/Loading";
 import Banners from "../Components/Banners";
+import LoadSkeleton from "../Components/LoadSkeleton";
 
 const Page = () => {
   const [store, setStore] = useState([]);
@@ -12,6 +13,7 @@ const Page = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [allOptions, setAllOptions] = useState(true);
   const [activeButton, setActiveButton] = useState("All");
+  const [dropFilters, setDropFilters] = useState(false);
 
   const received = async () => {
     //https://fakestoreapi.com/products = fake store api
@@ -44,7 +46,7 @@ const Page = () => {
   useEffect(() => {
     setTimeout(() => {
       received();
-    }, 1000);
+    }, 10000);
   }, []);
 
   const categories = store.reduce(
@@ -74,10 +76,16 @@ const Page = () => {
     }
   };
 
+  const handleDropFilters = () => {
+    setDropFilters((prevState) => {
+      return !prevState;
+    });
+  };
+
   return (
     <>
       {isLoading ? (
-        <Loading />
+        <LoadSkeleton />
       ) : (
         <div className="main-page">
           <Banners />
@@ -85,6 +93,34 @@ const Page = () => {
             <h2 className="title">STORE</h2>
           </div> */}
           <div>
+            <div className="dropdown">
+              <button
+                id="filterBtn"
+                className="dropdown-btn"
+                onClick={handleDropFilters}
+              >
+                Filter Options
+              </button>
+
+              {dropFilters && (
+                <div id="dropdownMenu" className="dropdown-content">
+                  <div className="dropdown-content-btns">
+                    {categories.map((category) => (
+                      <button
+                        key={category}
+                        onClick={() => handleCategoryClick(category)}
+                        className={
+                          selectedCategory === category ? "active" : "inactive"
+                        }
+                      >
+                        {category}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
             <div className="filter-btns">
               {categories.map((category) => (
                 <button

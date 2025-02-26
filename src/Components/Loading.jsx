@@ -4,19 +4,9 @@ import SpinnerLoader from "./SpinnerLoader";
 const Loading = () => {
   return (
     <>
-      <div
-        className="loading-page"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          minHeight: "100vh",
-          fontSize: "1.7rem",
-        }}
-      >
+      <div className="loading-page" style={{}}>
         <div>
-          <h1>Loading...Please wait</h1>
+          <h1>Loading...</h1>
           <SpinnerLoader />
         </div>
       </div>

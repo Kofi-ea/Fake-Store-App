@@ -89,14 +89,7 @@ const preview = () => {
             </div>
             <aside>
               <div className="info">
-                <h2
-                  style={{
-                    lineHeight: "2.3",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {info.title}
-                </h2>
+                <h2 className="info-title">{info.title}</h2>
                 <p style={{ lineHeight: "2.3", fontWeight: "bold" }}>
                   *price: ${info.price.toFixed(2)}
                 </p>

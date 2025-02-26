@@ -97,6 +97,17 @@ html {
 }
 .loading-page {
   background-color: rgb(232, 231, 231);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  font-size: 3.7rem;
+}
+
+.skeleton-load {
+  min-height: 100vh;
+  width: 100%;
 }
 
 @keyframes page {
@@ -138,6 +149,70 @@ html {
   margin: 30px 40px -30px 10px;
   border: 1px solid black;
   color: white;
+}
+
+/* Container */
+.dropdown {
+  visibility: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 10px 10px 0px 10px;
+}
+
+/* Button styling */
+.dropdown-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Dropdown content - hidden by default */
+.dropdown-content {
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  border: 1px solid #ccc;
+  z-index: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-top: 40px;
+}
+.dropdown-content-btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.dropdown-content-btns button {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  height: 2.3em;
+  width: fit-content;
+  margin: 0.3em;
+  border: 1px solid rgb(47, 47, 47);
+  text-align: center;
+}
+
+.dropdown-content-btns button.active {
+  background-color: #080707; /* Highlight color */
+  color: white;
+}
+
+.dropdown-content-btns button.inactive {
+  background-color: #f4f4f4; /* Default background color */
+  color: black;
 }
 
 .products-grid {
@@ -206,7 +281,7 @@ Apply the animation to the button */
 
 .preview {
   background-color: white;
-  height: 80vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   margin: 10px;
@@ -235,6 +310,13 @@ aside {
 
 aside .info {
   line-height: 1.2;
+}
+
+.info-title {
+  font-weight: bold;
+  line-height: 2.3;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .add-to-cart-btn {
@@ -644,8 +726,177 @@ aside .info {
   cursor: pointer;
 }
 
-/* Mobile devices (portrait) */
-@media (max-width: 599px) {
+/*Extra Large Screens*/
+@media (min-width: 1920px) {
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 30px;
+  }
+
+  .filter-btns button {
+    background-color: blue;
+  }
+}
+
+/*Desktops*/
+@media (min-width: 1200px) and (max-width: 1919px) {
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+/* Laptops and Large Tablets*/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+
+  .preview {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .preview-img-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .preview-img {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  aside {
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+
+  aside .info {
+    line-height: 1.8;
+    font-size: 1.7rem;
+  }
+
+  .info-title {
+    margin-bottom: 10px;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+  }
+}
+
+/*Small tablets*/
+@media (min-width: 768px) and (max-width: 991px) {
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .preview {
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .preview-img-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .preview-img {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  aside {
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+
+  aside .info {
+    line-height: 1.8;
+    font-size: 1.3rem;
+  }
+
+  .info-title {
+    margin-bottom: 10px;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+  }
+}
+
+/*Extra small devices*/
+@media (min-width: 650px) and (max-width: 767px) {
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .preview {
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .preview-img-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .preview-img {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  aside {
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+
+  aside .info {
+    line-height: 1.8;
+    font-size: 1.3rem;
+  }
+
+  .info-title {
+    margin-bottom: 10px;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+  }
+}
+
+/* Mobile*/
+@media (max-width: 650px) {
   .banners {
     height: 250px;
   }
@@ -654,21 +905,66 @@ aside .info {
     display: grid;
     grid-template-columns: 1fr;
     gap: 30px;
-    /* padding: 40px;
-    align-items: center;
-    justify-content: center; */
   }
 
   .filter-btns {
+    background-color: blue;
+    display: none;
+    align-items: center;
+    flex-direction: column;
   }
-}
 
-/* Tablets and small laptops */
-@media (min-width: 600px) and (max-width: 1023px) {
-  /* Styles for medium-sized screens */
-}
+  .dropdown {
+    visibility: visible;
+  }
 
-/* Large screens (desktops, larger tablets) */
-@media (min-width: 1024px) {
-  /* Styles for larger screens */
+  .footer {
+    background-color: pink;
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer-titles {
+    font-size: 1.6rem;
+  }
+
+  .preview {
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+  }
+
+  .preview-img-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .preview-img {
+    width: 100%;
+  }
+  aside {
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+
+  aside .info {
+    line-height: 1.2;
+  }
+
+  .info-title {
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+  }
 }
