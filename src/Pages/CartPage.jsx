@@ -6,11 +6,13 @@ import { FaCircleXmark, FaSquarePlus, FaSquareMinus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import CheckoutModal from "../Components/CheckoutModal";
 import { useNavigate } from "react-router-dom";
+import WindowSize from "../Components/WindowSize";
 
 const CartPage = () => {
   const [cart, setCart] = useState([]);
   const [wantsCheckout, setWantsCheckOut] = useState(false);
   const navigate = useNavigate();
+  const { width } = WindowSize();
 
   // if (!cart) {
   //   return <p>Loading cart...</p>;
@@ -61,7 +63,7 @@ const CartPage = () => {
   const subtotal = calculateSubtotal();
   const taxRate = 0.1; // 10% tax
   const tax = (subtotal * taxRate).toFixed(2);
-  console.log(tax);
+  // console.log(tax);
 
   const calculateGrandTotal = () => {
     const subtotal = calculateSubtotal();
@@ -127,7 +129,12 @@ const CartPage = () => {
                 <div key={info.title} className="cart-item-info">
                   <div className="product">
                     <img src={info.image} alt={info.title} />
-                    <p>{info.title}</p>
+                    <p>
+                      {width && width < 650
+                        ? info.title.substring(0, 8) + "..."
+                        : info.title}
+                      {/* {info.title} */}
+                    </p>
                   </div>
 
                   <p className="price">${info.price}</p>

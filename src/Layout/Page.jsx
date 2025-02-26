@@ -46,7 +46,7 @@ const Page = () => {
   useEffect(() => {
     setTimeout(() => {
       received();
-    }, 10000);
+    }, 1500);
   }, []);
 
   const categories = store.reduce(

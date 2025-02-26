@@ -453,7 +453,7 @@ aside .info {
 }
 
 .mini-checkout {
-  width: 35%;
+  width: 100%;
   flex-direction: column;
   height: 360px;
   font-family: Arial, Helvetica, sans-serif;
@@ -795,6 +795,10 @@ aside .info {
   .add-to-cart-btn {
     width: 100%;
   }
+
+  .cart-page {
+    background-color: yellow;
+  }
 }
 
 /*Small tablets*/
@@ -844,6 +848,10 @@ aside .info {
   .add-to-cart-btn {
     width: 100%;
   }
+
+  .cart-page {
+    background-color: green;
+  }
 }
 
 /*Extra small devices*/
@@ -892,6 +900,57 @@ aside .info {
 
   .add-to-cart-btn {
     width: 100%;
+  }
+
+  .cart-page {
+    background-color: blue;
+  }
+
+  .mini-checkout-box {
+    width: 100%;
+    display: flex;
+    font-size: 1.2rem;
+  }
+
+  .mini-checkout {
+    width: 100%;
+    flex-direction: column;
+    height: 360px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .subtotal,
+  .tax,
+  .discount {
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+    padding: 15px 0px;
+    border-bottom: 1px solid black;
+  }
+  .grand-total {
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+    padding: 15px 0px;
+    font-weight: bold;
+  }
+
+  .checkout-btns {
+    height: 300px;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+
+  .proceed-to-checkout-btn,
+  .continue-shopping-btn {
+    padding: 10px;
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid black;
+    text-transform: uppercase;
   }
 }
 
@@ -966,5 +1025,44 @@ aside .info {
 
   .add-to-cart-btn {
     width: 100%;
+  }
+
+  .cart-page {
+    background-color: rgb(114, 245, 245);
+  }
+
+  .cart-item {
+    display: grid;
+    border-bottom: 2px solid black;
+    margin-top: 5px;
+  }
+  .cart-item-info {
+    border-top: 2px solid black;
+    height: 150px;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 1.2rem;
+  }
+
+  .product {
+    display: flex;
+    align-items: start;
+    width: 100%;
+    background-color: green;
+  }
+
+  .price {
+    width: 100%;
+    background-color: blueviolet;
+  }
+
+  .quantity {
+    width: 30%;
+    background-color: yellow;
+  }
+
+  .total {
+    width: 20%;
+    background-color: pink;
   }
 }
