@@ -67,11 +67,12 @@ const preview = () => {
         // Update the state to reflect the changes
         setCart(updatedCart);
         setIsActive(!isActive);
+        setAdding(true);
 
         setTimeout(() => {
-          setAdding(true);
+          setShowAdded(true);
           setTimeout(() => {
-            setAdding(false);
+            setShowAdded(false);
           }, 2800);
         }, 1500);
       } else {
@@ -97,8 +98,8 @@ const preview = () => {
         <Loading />
       ) : (
         <div style={{ minHeight: "100vh", marginTop: "100px" }}>
-          <p className={`added-msg ${adding ? "active" : ""}`}>
-            {adding ? `Your item has been added to cart` : ""}
+          <p className={`added-msg ${showAdded ? "active" : ""}`}>
+            {showAdded ? `Your item has been added to cart` : ""}
           </p>
           <Link to={"/"} style={{ textDecoration: "none" }}>
             <button className="back-btn">
