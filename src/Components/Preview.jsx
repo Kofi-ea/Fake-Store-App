@@ -98,7 +98,7 @@ const preview = () => {
       ) : (
         <div style={{ minHeight: "100vh", marginTop: "100px" }}>
           <p className={`added-msg ${adding ? "active" : ""}`}>
-            {adding ? `added ${info.title} to cart` : ""}
+            {adding ? `Your item has been added to cart` : ""}
           </p>
           <Link to={"/"} style={{ textDecoration: "none" }}>
             <button className="back-btn">
