@@ -95,7 +95,7 @@ const CartPage = () => {
       {cart.length == 0 ? (
         <div className="empty-cart">
           <div className="empty-cart-msg">
-            <p style={{ fontSize: "3.5rem" }}>Your Cart is Empty</p>
+            <p>Your Cart is Empty</p>
             <Link to={"/"}>
               <button>Shop Now!!!</button>{" "}
             </Link>

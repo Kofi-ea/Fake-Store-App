@@ -18,6 +18,7 @@ const preview = () => {
   const { width } = WindowSize();
   const [fullDescription, setFullDescription] = useState(false);
   const [adding, setAdding] = useState(false);
+  const [showAdded, setShowAdded] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0); // Scrolls to the top of the page
@@ -71,9 +72,10 @@ const preview = () => {
           setAdding(true);
           setTimeout(() => {
             setAdding(false);
-          }, 3000);
+          }, 2800);
         }, 1500);
       } else {
+        alert("Product already in cart");
       }
     } catch (error) {
       console.error("Error while adding item to cart:", error);
@@ -81,8 +83,6 @@ const preview = () => {
   };
 
   let description = info.description;
-
-  console.log(description);
 
   const showFullDescription = () => {
     setFullDescription((prevState) => {
@@ -97,7 +97,7 @@ const preview = () => {
         <Loading />
       ) : (
         <div style={{ minHeight: "100vh", marginTop: "100px" }}>
-          <p className="added-msg">
+          <p className={`added-msg ${adding ? "active" : ""}`}>
             {adding ? `added ${info.title} to cart` : ""}
           </p>
           <Link to={"/"} style={{ textDecoration: "none" }}>
