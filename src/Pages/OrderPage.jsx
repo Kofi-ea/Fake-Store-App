@@ -3,9 +3,11 @@ import { useEffect } from "react";
 import Header from "../Layout/Header";
 import Footer from "../Layout/Footer";
 import { useLocation } from "react-router-dom";
+import WindowSize from "../Components/WindowSize";
 
 const OrderPage = () => {
   const location = useLocation();
+  const { width } = WindowSize();
   // const { cart } = location.state || {};
   // console.log(location);
   // const cart = location.state ? location.state.cart : [];
@@ -71,7 +73,12 @@ const OrderPage = () => {
                   <div className="order-desc">
                     <img src={order.image} alt={order.title} />
                     <div className="order-desc-info">
-                      <p>{order.title}</p> <p>Quantity : {order.quantity}</p>{" "}
+                      <p>
+                        {width && width < 550
+                          ? order.title.substring(0, 10) + "..."
+                          : order.title}
+                      </p>{" "}
+                      <p>Quantity : {order.quantity}</p>{" "}
                       <p>Price : ${order.price}</p>
                     </div>
                   </div>

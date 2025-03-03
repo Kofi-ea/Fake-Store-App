@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PreviewHeader = ({ cart }) => {
+const PreviewHeader = () => {
   return (
     <>
       <div className="heading" style={{ top: "0" }}>
@@ -17,9 +17,7 @@ const PreviewHeader = ({ cart }) => {
         </div>
         <div className="cart-link">
           <Link to={"/cart"}>
-            <li>
-              Cart <span>( {cart} )</span>
-            </li>
+            <li>Cart</li>
           </Link>
         </div>
       </div>

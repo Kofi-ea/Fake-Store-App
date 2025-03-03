@@ -14,7 +14,11 @@ const AddToCartBtn = ({ add, productId }) => {
     add();
 
     // Then set the state to disable the button and change text
-    setIsAdded(true);
+
+    setTimeout(() => {
+      setIsAdded(true);
+    }, 1500);
+
     localStorage.setItem(`added-${productId}`, "true");
   };
   return (

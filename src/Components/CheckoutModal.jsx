@@ -1,5 +1,6 @@
 import React from "react";
 // import { Link } from "react-router-dom";
+import { FaTrashCan, FaPen } from "react-icons/fa6";
 
 const CheckoutModal = ({
   close,
@@ -44,14 +45,14 @@ const CheckoutModal = ({
                     </p>
                     <div className="edit-btns">
                       <button onClick={close} className="update-item-btn">
-                        Update
+                        <FaPen />
                       </button>
 
                       <button
                         onClick={() => removeItemFromCart(info)}
                         className="remove-item-btn"
                       >
-                        Remove
+                        <FaTrashCan />
                       </button>
                     </div>
                   </div>
@@ -60,7 +61,7 @@ const CheckoutModal = ({
             ))}
           </div>
           <div className="order-summary">
-            <h1>Order Summary</h1>
+            <h1 className="heading-order-summary">Order Summary</h1>
 
             <div className="order-info">
               <div className="items">

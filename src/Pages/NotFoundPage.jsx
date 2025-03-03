@@ -5,16 +5,7 @@ import { Link } from "react-router-dom";
 const NotFoundPage = () => {
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-
-          textAlign: "center",
-          minHeight: "100vh",
-          fontSize: "1.7rem",
-        }}
-      >
+      <div className="not-found-page">
         <div>
           <FaExclamationTriangle
             style={{ color: "yellow", fontSize: "1.8rem" }}

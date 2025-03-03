@@ -7,13 +7,17 @@ import { Link } from "react-router-dom";
 import PreviewHeader from "../Layout/PreviewHeader";
 import Footer from "../Layout/Footer";
 import AddToCartBtn from "./AddToCartBtn";
+import WindowSize from "../Components/WindowSize";
 
 const preview = () => {
   const { id } = useParams();
-  const [info, setInfo] = useState(null);
+  const [info, setInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [cart, setCart] = useState([]);
   const [isActive, setIsActive] = useState(false);
+  const { width } = WindowSize();
+  const [fullDescription, setFullDescription] = useState(false);
+  const [adding, setAdding] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0); // Scrolls to the top of the page
@@ -27,6 +31,9 @@ const preview = () => {
         const data = await response.json();
         // console.log(data);
 
+        if (!response.ok) {
+          throw Error("Did not receive any data");
+        }
         setInfo(data);
       } catch (error) {
         console.log("Something went wrong", error);
@@ -59,23 +66,40 @@ const preview = () => {
         // Update the state to reflect the changes
         setCart(updatedCart);
         setIsActive(!isActive);
+
+        setTimeout(() => {
+          setAdding(true);
+          setTimeout(() => {
+            setAdding(false);
+          }, 3000);
+        }, 1500);
       } else {
-        alert("This product is already in the cart.");
       }
     } catch (error) {
       console.error("Error while adding item to cart:", error);
     }
   };
-  console.log(cart);
-  console.log(typeof cart);
+
+  let description = info.description;
+
+  console.log(description);
+
+  const showFullDescription = () => {
+    setFullDescription((prevState) => {
+      return !prevState;
+    });
+  };
 
   return (
     <>
-      <PreviewHeader cart={cart.length} />
+      <PreviewHeader />
       {isLoading ? (
         <Loading />
       ) : (
         <div style={{ minHeight: "100vh", marginTop: "100px" }}>
+          <p className="added-msg">
+            {adding ? `added ${info.title} to cart` : ""}
+          </p>
           <Link to={"/"} style={{ textDecoration: "none" }}>
             <button className="back-btn">
               <FaArrowLeft />
@@ -100,7 +124,18 @@ const preview = () => {
                     fontWeight: "bold",
                   }}
                 >
-                  {info.description}
+                  {/* {width && width < 650
+                    ? info.description.substring(0, 100) + "..."
+                    : info.description} */}
+                  {!fullDescription
+                    ? description.substring(0, 100) + "..."
+                    : description + "."}{" "}
+                  <button
+                    onClick={showFullDescription}
+                    className="show-description-btn"
+                  >
+                    {!fullDescription ? "more" : "less"}
+                  </button>
                 </p>
                 <p
                   style={{

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 // import Loading from "../Components/Loading";
 import Banners from "../Components/Banners";
 import LoadSkeleton from "../Components/LoadSkeleton";
+import { FaFilter } from "react-icons/fa6";
 
 const Page = () => {
   const [store, setStore] = useState([]);
@@ -24,6 +25,10 @@ const Page = () => {
 
       const data = await response.json();
       // console.log(data);
+
+      if (!response.ok) {
+        throw Error("Did not receive any data");
+      }
 
       setStore(data);
       // setVisibleOptions(data.slice(0, 8));
@@ -65,6 +70,9 @@ const Page = () => {
     setActiveButton(category);
 
     applyCategoryFilter(category, store);
+    setDropFilters((prevState) => {
+      return !prevState;
+    });
   };
 
   const applyCategoryFilter = (category, store) => {
@@ -99,7 +107,7 @@ const Page = () => {
                 className="dropdown-btn"
                 onClick={handleDropFilters}
               >
-                Filter Options
+                Filters <FaFilter />
               </button>
 
               {dropFilters && (
@@ -137,7 +145,7 @@ const Page = () => {
 
             <div className="products-grid">
               {!allOptions
-                ? store.map((product) => {
+                ? store?.map((product) => {
                     return (
                       <Products
                         key={product.id}
@@ -150,7 +158,7 @@ const Page = () => {
                       />
                     );
                   })
-                : filteredData.map((product) => {
+                : filteredData?.map((product) => {
                     return (
                       <Products
                         key={product.id}

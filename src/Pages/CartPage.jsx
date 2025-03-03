@@ -128,34 +128,88 @@ const CartPage = () => {
               {cart.map((info) => (
                 <div key={info.title} className="cart-item-info">
                   <div className="product">
-                    <img src={info.image} alt={info.title} />
+                    <img
+                      src={info.image}
+                      alt={info.title}
+                      className="cart-item-img"
+                    />
                     <p>
                       {width && width < 650
-                        ? info.title.substring(0, 8) + "..."
+                        ? info.title.substring(0, 23) + "..."
                         : info.title}
                       {/* {info.title} */}
                     </p>
                   </div>
 
-                  <p className="price">${info.price}</p>
-                  <p className="quantity">
-                    <FaSquareMinus
-                      onClick={() => decreaseQuantity(info.id)}
-                      style={{ cursor: "pointer" }}
-                    />
-                    {info.quantity}
-                    <FaSquarePlus
-                      onClick={() => increaseQuantity(info.id)}
-                      style={{ cursor: "pointer" }}
-                    />
-                  </p>
-                  <div className="total">
-                    <p>${info.quantity.toFixed(2) * info.price.toFixed(2)}</p>
-                    <FaCircleXmark
-                      onClick={() => removeItemFromCart(info)}
-                      style={{ cursor: "pointer" }}
-                    />
-                  </div>
+                  {width && width < 650 ? (
+                    <>
+                      <p className="price">
+                        <span> Price: </span>${info.price}
+                      </p>
+                      <p className="quantity">
+                        Quantity:
+                        <span
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            fontSize: "1.4rem",
+                          }}
+                        >
+                          <FaSquareMinus
+                            onClick={() => decreaseQuantity(info.id)}
+                            style={{ cursor: "pointer" }}
+                          />
+                          <span
+                            style={{
+                              marginLeft: "10px",
+                              marginRight: "10px",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            {info.quantity}
+                          </span>
+                          <FaSquarePlus
+                            onClick={() => increaseQuantity(info.id)}
+                            style={{ cursor: "pointer" }}
+                          />
+                        </span>
+                      </p>
+                      <div className="total">
+                        <p>
+                          <span style={{ marginRight: "10px" }}>Subtotal:</span>
+                          ${info.quantity.toFixed(2) * info.price.toFixed(2)}
+                        </p>
+                        <FaCircleXmark
+                          onClick={() => removeItemFromCart(info)}
+                          style={{ cursor: "pointer", fontSize: "1.6rem" }}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <p className="price">${info.price}</p>
+                      <p className="quantity">
+                        <FaSquareMinus
+                          onClick={() => decreaseQuantity(info.id)}
+                          style={{ cursor: "pointer" }}
+                        />
+                        {info.quantity}
+                        <FaSquarePlus
+                          onClick={() => increaseQuantity(info.id)}
+                          style={{ cursor: "pointer" }}
+                        />
+                      </p>
+                      <div className="total">
+                        <p>
+                          ${info.quantity.toFixed(2) * info.price.toFixed(2)}
+                        </p>
+                        <FaCircleXmark
+                          onClick={() => removeItemFromCart(info)}
+                          style={{ cursor: "pointer" }}
+                        />
+                      </div>
+                    </>
+                  )}
                 </div>
               ))}
             </div>
@@ -172,7 +226,9 @@ const CartPage = () => {
               </div>
               <div className="discount">
                 <p style={{ fontWeight: "bold" }}>Coupon Code:</p>
-                <Link to={"#"}>Add Coupon</Link>
+                <Link to={"#"} style={{ textDecoration: "none" }}>
+                  Add Coupon
+                </Link>
               </div>
               <div className="grand-total">
                 <p style={{ fontWeight: "bold", fontSize: "1.8rem" }}>
