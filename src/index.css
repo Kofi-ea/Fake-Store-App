@@ -182,6 +182,7 @@ html {
   border: 1px solid black;
   display: flex;
   align-items: center;
+  color: black;
 }
 
 /* Dropdown content - hidden by default */
