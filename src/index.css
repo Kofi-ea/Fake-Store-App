@@ -319,6 +319,7 @@ Apply the animation to the button */
   text-align: center;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: black;
   text-transform: uppercase;
   font-weight: bold;
