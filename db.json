@@ -1,0 +1,58 @@
+{
+  "products": [
+    {
+      "category": "men's clothing",
+      "description": "Lorem Ipsum",
+      "id": "21",
+      "image": "",
+      "price": 20.34,
+      "rating": {
+        "count": 134,
+        "rate": 2.8
+      },
+      "title": "Sweater Lacoste"
+    },
+    {
+      "id": "3952",
+      "title": "Fugu",
+      "price": "$230",
+      "description": "Pure hand stitched african traditional wear with a high thread count.",
+      "category": "men's clothing"
+    },
+    {
+      "id": "252c",
+      "title": "Sapphire earrings",
+      "price": "$125",
+      "description": "Bright like the stars in the the skies of arabia.",
+      "category": "jewelery"
+    },
+    {
+      "id": "874c",
+      "title": "Hisense digital Tv",
+      "price": "$1,200",
+      "description": "4K RESOLUTION",
+      "category": "electronics"
+    },
+    {
+      "id": "e701",
+      "title": "Booty Shorts",
+      "price": "$20",
+      "description": "Sexy summer shorts for beaches and night timr fun",
+      "category": "women's clothing"
+    },
+    {
+      "id": "9684",
+      "title": "khaki Shorts",
+      "price": "$20",
+      "description": "for picnics and bbq days",
+      "category": "men's clothing"
+    },
+    {
+      "id": "f8ae",
+      "title": "Dashiki",
+      "price": "$35",
+      "description": "Very cultural and traditional",
+      "category": "men's clothing"
+    }
+  ]
+}

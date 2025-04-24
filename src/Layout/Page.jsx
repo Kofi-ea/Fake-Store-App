@@ -8,6 +8,7 @@ import { FaFilter } from "react-icons/fa6";
 
 const Page = () => {
   const [store, setStore] = useState([]);
+  const [vendorUpload, setVendorUpload] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   // const [visibleOptions, setVisibleOptions] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -24,7 +25,7 @@ const Page = () => {
       const response = await fetch(`https://fakestoreapi.com/products`);
 
       const data = await response.json();
-      // console.log(data);
+      //console.log(data);
 
       if (!response.ok) {
         throw Error("Did not receive any data");
@@ -32,6 +33,14 @@ const Page = () => {
 
       setStore(data);
       // setVisibleOptions(data.slice(0, 8));
+
+      const response2 = await fetch("http://localhost:5000/products");
+      const data2 = await response2.json();
+
+      if (!response2.ok) {
+        throw Error("Did not receive any data from vendor");
+      }
+      setVendorUpload(data2);
 
       const savedCategory = localStorage.getItem("selectedCategory");
 
@@ -171,13 +180,22 @@ const Page = () => {
                       />
                     );
                   })}
+
+              {vendorUpload.map((post) => {
+                return (
+                  <Products
+                    key={post.id}
+                    id={post.id}
+                    name={post.title}
+                    //  category = {product.category}
+                    about={post.description}
+                    //price={post.price}
+                    //image={product.image}
+                  />
+                );
+              })}
             </div>
           </div>
-          {/* <div className="show-more-btn">
-            <button onClick={showMore}>
-              {hideOptions ? "Show More" : "Hide"}
-            </button>
-          </div> */}
         </div>
       )}
     </>

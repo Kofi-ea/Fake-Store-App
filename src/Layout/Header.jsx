@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import SignOut from "../Components/SignOut";
 
 const Header = () => {
   const [showCollection, setShowCollection] = useState(false);
@@ -27,6 +28,7 @@ const Header = () => {
             <li>Cart</li>
           </Link>
         </div>
+        <SignOut />
       </div>
     </>
   );

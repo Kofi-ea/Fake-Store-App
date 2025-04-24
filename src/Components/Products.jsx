@@ -9,7 +9,7 @@ const Products = ({ name, price, image, about, id }) => {
           <img className="product-image" src={image} alt={about} />
           <div className="product-info">
             <p className="product-name">{name.substring(0, 20) + "..."}</p>
-            <p className="product-price">${price.toFixed(2)}</p>
+            {/*<p className="product-price">${price.toFixed(2)}</p>*/}
           </div>
         </div>
       </Link>

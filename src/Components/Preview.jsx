@@ -115,9 +115,9 @@ const preview = () => {
             <aside>
               <div className="info">
                 <h2 className="info-title">{info.title}</h2>
-                <p style={{ lineHeight: "2.3", fontWeight: "bold" }}>
+                {/*<p style={{ lineHeight: "2.3", fontWeight: "bold" }}>
                   *price: ${info.price.toFixed(2)}
-                </p>
+                </p>*/}
                 <p
                   style={{
                     lineHeight: "1.3",
@@ -128,9 +128,9 @@ const preview = () => {
                   {/* {width && width < 650
                     ? info.description.substring(0, 100) + "..."
                     : info.description} */}
-                  {!fullDescription
+                  {/*{!fullDescription
                     ? description.substring(0, 100) + "..."
-                    : description + "."}{" "}
+                    : description + "."}{" "} */}
                   <button
                     onClick={showFullDescription}
                     className="show-description-btn"
@@ -147,12 +147,12 @@ const preview = () => {
                 >
                   *category: {info.category}
                 </p>
-                <p style={{ lineHeight: "1.3", fontWeight: "bold" }}>
+                {/*<p style={{ lineHeight: "1.3", fontWeight: "bold" }}>
                   *ratings: {info.rating.rate}
                 </p>
                 <p style={{ lineHeight: "1.3", fontWeight: "bold" }}>
                   *stock left: {info.rating.count}
-                </p>
+                </p> */}
               </div>
               <AddToCartBtn add={() => addToCart(info)} productId={info.id} />
               {/* <button
